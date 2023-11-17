@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>course-text</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="doxx86-assembly-course">DOX/x86 Assembly Course</h1>
+<h2 id="what-is-this-all-about">What is this all about ?</h2>
+<p>Assembly language is the lowest level available of software
+programming.</p>
+<p>It’s bare to the metal, you have access to all of what is possible to
+do with the computer.</p>
+<p>It could be tedious, programming complexity explodes, yet, in some
+situations it’s inevitable to access the full power of the machine.</p>
+<p>It’s the foundation of everything you run on a computer, if you
+explore it, if you learn from it, you’ll really understand how machine
+works.</p>
+<h2 id="software-programming-computer-science">Software programming ?
+Computer Science ?</h2>
+<p>Software programming is some kind of wizardry, it’s
+<strong>NOT</strong> about computers, it’s <strong>NOT</strong> a
+science. It’s an art.</p>
+<p>I highly recommend the book: <em>Structure and Interpretation of
+Computer Programs</em> from Gerald Jay Sussman and Hal Abelson.</p>
+<p>And I recommend even more their own lectures of it, recorded in the
+80’s, in front of Hewlett-Packard professionals. This is History and a
+corner stone of Computer Science.</p>
+<p>You can freely access to them on the <strong>MIT</strong> site: <a
+href="https://ocw.mit.edu/courses/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video_galleries/video-lectures/">SICP
+Video Lectures</a></p>
+<h2 id="wizardry">Wizardry ?</h2>
+<blockquote>
+<p>“Any sufficiently advanced technology is indistinguishable from
+magic”</p>
+<p><strong>Arthur C. Clarke</strong> - <em>Profiles of the Future: An
+Inquiry into the Limits of the Possible</em></p>
+</blockquote>
+<p>Reality is that programming is the current final destination of Human
+History with technology engineering. Thousands of years of evolution and
+concept refining.</p>
+<p>We build machines for so long that we don’t even know when it
+started. There are many kind of machines, at the beginning they had
+different usages and purposes, often unrelated.</p>
+<p>Years passing some abstract concepts emerged and were blent, the
+modern processors and computers are the result of all this journey. And
+it’s based upon everything we did earlier.</p>
+<h2 id="the-great-history.">The Great History.</h2>
+<h3 id="origins">Origins?</h3>
+<p>The first machine, if we accept the abstract concept “If
+&lt;condition&gt; Then Do &lt;something&gt;”, can bring us back to
+thousands of years, or more: the <strong>trap</strong>.</p>
+<p>A trap is a machine which whenever something is detected, it triggers
+a mechanism to capture or kill a prey. It can be autonomous and uses
+laws of physics to implement the idea.</p>
+<p>Abstractly, a trap is composed of a <em>sensor</em> and an
+<em>actor</em> bound together through a <em>smart</em> mechanism, which
+can be very simple.</p>
+<h3 id="more">More?</h3>
+<p>We have few documents of all primitive machines which can have been
+invented and constructed. But we have some information about the greek
+and roman epochs, “Antiquity”.</p>
+<p>One of the notable <em>machine</em> we discovered is the <a
+href="https://en.wikipedia.org/wiki/Antikythera_mechanism">Antikythera
+mechanism</a>. It’s evaluated to have been manufactured and used around
+one or two centuries BC.</p>
+<p>It’s build around gears and serves as some calendar, and it’s
+believed that it was used to predict astronomical events.</p>
+<figure>
+<img src="course-text.media/NAMA_Machine_d&#39;Anticythère_1.jpg"
+title="Antikythera Mechanism" width="1024"
+alt="Antikythera Mecanism (Machine d’Anticythère)" />
+<figcaption aria-hidden="true">Antikythera Mecanism (Machine
+d’Anticythère)</figcaption>
+</figure>
+<p><strong>Some reconstruction:</strong></p>
+<p><img src="course-text.media/Antikythera_mechanism.svg"
+title="Antikythera Mechanism Schematic" width="512"
+alt="Antikythera Mecanism (Machine d’Anticythère)" /> <img
+src="course-text.media/Computer_graphic_for_back_of_Antikythera_mechanism.jpg"
+title="Antikythera Mechanism CGI" width="512"
+alt="Antikythera Mecanism (Machine d’Anticythère)" /></p>
+<p>Another <em>kind of</em> machine was used at the time, to use the sun
+light to <em>look up</em> for day time. The
+<strong>Sundial</strong>…</p>
+<figure>
+<img src="course-text.media/Melbourne_sundial_at_Flagstaff_Gardens.jpg"
+width="1024" alt="Sundial" />
+<figcaption aria-hidden="true">Sundial</figcaption>
+</figure>
+<p>Note that those two <em>machines</em> can be abstracted as
+<em><strong>lookup</strong></em> mechanism. The sundial being the
+simplest and using geometry to simply project a shadow at the current
+hour. The Antikythera mechanism, uses cogs and gears to point to some
+engraved “<em>tables</em>”.</p>
+<h3 id="rise-in-complexity.">Rise in complexity.</h3>
+<p>We’ll skip a lot of steps, not because they are worthless, but
+because of limited time. But we see more and more complex
+<em>machines</em> during History.</p>
+<h4 id="blaise-pascal-1623-1662">Blaise Pascal
+<em><strong>1623-1662</strong></em></h4>
+<p>Mathematician, he invented the first calculator. Doing “simple”
+additions and substractions.</p>
+<figure>
+<img src="course-text.media/Blaise_Pascal_Versailles.jpg"
+title="Blaise Pascal" width="1024" alt="Blaise Pascal" />
+<figcaption aria-hidden="true">Blaise Pascal</figcaption>
+</figure>
+<figure>
+<img src="course-text.media/Pascaline-CnAM_823-1-IMG_1506-black.jpg"
+title="Pascaline" width="1024" alt="Pascaline" />
+<figcaption aria-hidden="true">Pascaline</figcaption>
+</figure>
+<figure>
+<img src="course-text.media/Pascaline_roue_d&#39;inscription.jpg"
+title="Pascaline Roue" width="1024" alt="Pascaline Roue" />
+<figcaption aria-hidden="true">Pascaline Roue</figcaption>
+</figure>
+<p>Without digging into details, the way of working is simply based with
+common <em>amplification</em> resulting from different sized gears. For
+sample, if one gear do one full turn, the other one do a tenth of
+circle, this way you can <em>count</em> units, tenths, hundredths and so
+on.</p>
+<p>Note that this is the start of actual automatic <em>complex</em>
+calculation. The machines knows nothing about numbers, it’s just built
+so the moving parts follow the semantic we expect, mechanically, in a
+dumb way.</p>
+<h4 id="music-box-1796">Music Box <strong>1796</strong></h4>
+<p>Geneva’s <strong>Antoine Favre</strong> presented the «carillon sans
+timbre ni marteau».</p>
+<figure>
+<img src="course-text.media/Bmusique_det.jpg" title="Music box"
+width="1024" alt="Music box" />
+<figcaption aria-hidden="true">Music box</figcaption>
+</figure>
+<figure>
+<img src="course-text.media/Baud_museum_mg_8521.jpg"
+title="Watch with musical device" width="512"
+alt="Watch with musical device" />
+<figcaption aria-hidden="true">Watch with musical device</figcaption>
+</figure>
+<hr />
+<h3 id="the-rise-of-programmable-machines.">The rise of programmable
+machines.</h3>
+<p><em><strong>1725</strong></em> <strong>Basile Bouchon</strong> and
+<strong>Jean-Baptiste Falcon</strong> invented the “punch cards” to
+program looming devices.</p>
+<p>Punch cards allow to define patterns to activate or not a process on
+one “line”.</p>
+<p><em><strong>1752-1834</strong></em> <strong>Joseph Marie
+Jacquard</strong> <em>(Lyon - 1801)</em>. Aimed to reduce child
+work.</p>
+<figure>
+<img src="course-text.media/Metier_jacquard.jpg"
+title="Métier a tisser Jacquard" width="1024"
+alt="Métier a tisser Jacquard" />
+<figcaption aria-hidden="true">Métier a tisser Jacquard</figcaption>
+</figure>
+<figure>
+<img src="course-text.media/Telaio_Jacquard_1849.jpg"
+title="Métier Jacquard Schematic 1849" width="1024"
+alt="Métier Jacquard Schematic 1849" />
+<figcaption aria-hidden="true">Métier Jacquard Schematic
+1849</figcaption>
+</figure>
+<figure>
+<img src="course-text.media/Jacquard.loom.cards.jpg"
+title="Métier Jacquard Loom Cards" width="1024"
+alt="Métier Jacquard Loom Cards" />
+<figcaption aria-hidden="true">Métier Jacquard Loom Cards</figcaption>
+</figure>
+<h4 id="barrel-organ">Barrel Organ</h4>
+<p>Origin is unknwon. Oldest one date from 1502 (Salzburg Castle) named
+the Salzburg Bull.</p>
+<figure>
+<img src="course-text.media\Salzburg-bull.jpg" title="Salzburg Bull"
+width="1024" alt="Salzburg Bull" />
+<figcaption aria-hidden="true">Salzburg Bull</figcaption>
+</figure>
+<p><strong>Are you OK Annie?</strong></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fnb7EqfykF4" title="Smooth Criminal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p><strong>Take a chance</strong>*</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YHQaZblYxl4" title="Abba Medley" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p><strong>Marble game</strong></p>
+<p>Nowadays, some musician took the challenge to build a modern
+“mechanical” music machine, using marbles.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-gPVvoIEw0w?start=64" title="Wintergatan Marble Machine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<h3 id="machine-knows-nothing-but-does-what-we-want.">Machine knows
+nothing but does what we want.</h3>
+<p>You’ll noticed that all those machines explored several concepts we
+are <strong>still</strong> using nowadays.</p>
+<ul>
+<li>The conditional or event action trigger.</li>
+<li>The lookup table.</li>
+<li>Using geometry (mathematics) to create physical models which react
+in a specific manner.</li>
+<li>Behavior recording (punch cards)</li>
+<li><em>Binary</em> patterns, punch cards holds a physical
+representation of some pattern, translated to some actions.</li>
+</ul>
+<p>Modern computers expand on those ideas, and with re-writable medium
+allows dynamic behaviors, and self modifying processes. At no point we
+requires the <em>machine</em> to understand what we manipulate, it just
+does dumb things. It’s the way we build and program them, and the way we
+expose results which makes sense for us.</p>
+<h2 id="turing-machine.">Turing Machine.</h2>
+<p>Alan Turing was one of the early explorer of modern computers, he
+described a theoretical machine able to compute <em>“anything”</em>.</p>
+<p>It’s based on an infinite <em>tape</em> giving instructions,
+providing data, and recording results. And some <em>heads</em> reading
+and writing symbols from the tape. The machine have an instruction set,
+which is mapped on the symbols.</p>
+<p>Modern computers are an implementation of a Turing Machine (and Von
+Neumann architecture). Memory is the tape, and the processor is the
+<em>computing machine</em>. Note that a computer is composed of
+<strong>MANY</strong> tiny turing machines (processors), we will focus
+on the CPU (Central Processing Unit), which is the core one, the one
+driving the other ones. But basic principle stays the same.</p>
+<h2 id="binary-states.">Binary states.</h2>
+<p>Some Theorists and mathematicians led the way to the simplest element
+to build a “smart” machine.</p>
+<p><em>George Boole</em> is one of them, introducing boolean algebra and
+ways to express things with two values <strong>true</strong> and
+<strong>false</strong>, building basis of numerical logic.</p>
+<p><em>Claude Shannon</em> is another pillar of this movement, starting
+to implement boolean algebra and arithmetic on electronic relays and
+switches.</p>
+<p><em>George Stibitz</em> built a relay-based computer able to
+calculate from binary addition.</p>
+<h3 id="why-binary-states.">Why binary states.</h3>
+<p>One of the physical advantages of binary states (on/off) is it’s more
+stable and protected from noise than pure analog hardwares. Electricity
+signal is not stable, it varies depending of electromagnetic
+environment, current fluctuations and many other factors.</p>
+<p>A binary state can be easily construct using a <em>threshold</em>. If
+the current tension is below this threshold it’s considered as
+<em>off</em>, while when it’s over it’s <em>on</em>. The threshold can
+be easily chosen knowing the error amplitude of the signal, so the state
+is resistent to small fluctuations.</p>
+<h3 id="from-state-to-logic.">From state to logic.</h3>
+<p>Thanks to binary states, we can build simple logic components,
+mapping the Boolean logic to electric construction called <em>logical
+gates</em>.</p>
+<p><em>Logical gates</em> are the lower primitives, the foundations
+allowing to build every logic we can imagine and need.</p>
+<h3 id="a-double-win-scenario.">A double win scenario.</h3>
+<p>Thanks to this simple element, we were able to both build numerical
+models on the information side (the logic, abstraction) AND huge
+physical advantages, is robustness of carrying and processing
+information, and the ability to miniaturize the bricks at fantastic
+levels. Moderns processors are implemented at atomic scale level… Only a
+few atoms separate all elements.</p>
+<p>Between 1957 and 1959, <em>Mohamed Atalla</em> and <em>Dawon
+Kahng</em> developed the first modern semiconductor, using silicon, our
+current technology is directly derived from their work.</p>
+<h3 id="how-it-works.">How it works.</h3>
+<p>I assume that you know the basic logical gates, and won’t go into
+details about them. I’ll focus on how to use them to do something more,
+something else.</p>
+<p>We start with arithmetic.</p>
+<p>So we start with some primitive operations: <strong>AND</strong>,
+<strong>OR</strong>, <strong>XOR</strong> ,<strong>NOT</strong>. I
+assume you all know what they mean and their logical table.</p>
+<h4 id="the-semantic.">The semantic.</h4>
+<p>So a logical gate takes two input binary states and configure itself
+to output one binary state.</p>
+<p>The gate knows nothing, understand nothing it’s just built to match a
+reaction table, based on boolean logic. As humans, we decide of the
+semantic of what <em>off</em> and <em>on</em> means for us.</p>
+<p>Obviously it can mean simply <em>on</em> and <em>off</em> and that’s
+the semantic we want in some situations.</p>
+<p>Also obviously it can means <em>true</em> or <em>false</em> which is
+the link to boolean logic.</p>
+<p>But it can also mean for us <em>one</em> (<strong>1</strong>) or
+<em>zero</em> (<strong>0</strong>), and that’s what we do when we talk
+about a “<em>bit</em>” (binary digit).</p>
+<h4 id="adding-two-bits.">Adding two bits.</h4>
+<p>So we want to build an addition operation. So how do we add two
+numbers ?</p>
+<p>The principle is the same as the way we learn to add decimal numbers.
+We simply project it to base-2 system.</p>
+<p>We can create a table for 1 digit binary addition:</p>
+<table>
+<thead>
+<tr class="header">
+<th>+</th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>We can first consider the least significant bit, and observe
+something interesting.</p>
+<table>
+<thead>
+<tr class="header">
+<th>??</th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Notice it’s exactly the same table as the <strong>XOR</strong>
+logical table.</p>
+<p>But we left the second bit in the 1+1 result. Note that his bit is
+the <em>“carry”</em> of the addition.</p>
+<p>So we now observe the addition table, but only with the result
+<em>carry</em> bit. Note that we assume implicit leading zeros from the
+addition table (0 = 00 ,1 = 01).</p>
+<table>
+<thead>
+<tr class="header">
+<th>??</th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Here again we can notice that it matches perfectly with another
+logical table, the <strong>AND</strong> one.</p>
+<p>So to add a binary digit with logical gate we use two gates:</p>
+<ul>
+<li><em>XOR</em> generates the binary result digit of this
+addition.</li>
+<li><em>AND</em> generates the carry value of this digit addition.</li>
+</ul>
+<h4 id="vectorization.">Vectorization.</h4>
+<p>Instead of working with one bit, we now can extend the principle to
+bit vectors. Parallelizing logical gates, we can have a “vector of
+states” as input, and a “vector of states” as output.</p>
+<p>In processors, an array of bit is a <em>machine word</em>. The
+architecture of the processor drives the size of this word. That’s what
+makes a <em>8 bit</em>, <em>16 bit</em>, <em>32 bit</em>, <em>64
+bit</em> and so on processors.</p>
+<p>Vectors of bits allow introduction of a new operation
+<em>shifting</em>. It consists of shifting the state pattern “right” or
+“left” for one or more bits.</p>
+<p>In C-like languages, we often use the scalar type <em>int</em> for
+<em>integer</em> to relate to, nowadays, 32 bit bit vectors. So applying
+what we’ve seen before, we can do a vectorized addition, to add multiple
+digits numbers.</p>
+<p>The algorithm is simple, shown in C-style:</p>
+<pre><code>// Binary integer addition without addition operator.
+int add( int a ,int b ) {
+    int acc = a ,carry = b;
+    while( carry ) {        // We need to repeat while there&#39;s some carry left.
+        int xorResult = acc ^ carry;    // Do a parallel &quot;addition&quot; of all digits (individual bits).
+        carry = (acc &amp; carry) &lt;&lt; 1;     // Get carry and shift it to the left.
+        acc = xorResult;
+    }
+    return acc;
+}</code></pre>
+<h4 id="shifts">Shifts ?</h4>
+<p>So now we have another operation with the “shift” thanks to
+manipulating a vector of bit.</p>
+<p>But what is the semantic of a shift ?</p>
+<p>On the physical level, it’s just a pattern rotation. But we can note
+something, looking again to our well known decimal arithmetic.</p>
+<p>What means shifting a decimal number ??</p>
+<ul>
+<li><strong>2</strong> shifted once to the left, meaning unit becomes
+tenths: <strong>20</strong></li>
+<li><strong>45</strong> shifted twice to the left:
+<strong>4500</strong></li>
+<li>…</li>
+</ul>
+<p>Note that in the base-10 notation, <em>shifting</em> by n means
+multiplying by 10^n.</p>
+<p>So now we can find another semantic to the <em>shift</em> operator:
+it allows to multiply by an integer power of the number base.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Left Shift</th>
+<th>base *</th>
+<th>*</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x &lt;&lt; 1</td>
+<td>x * 2^1</td>
+<td>x * 2</td>
+</tr>
+<tr class="even">
+<td>x &lt;&lt; 2</td>
+<td>x * 2^2</td>
+<td>x * 4</td>
+</tr>
+<tr class="odd">
+<td>x &lt;&lt; 3</td>
+<td>x * 2^3</td>
+<td>x * 8</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>You might now have an idea about why computer programmers love using
+power of two numbers, they are easy to use, and requires only
+<em>shift</em>-ing.</p>
+<p>Reciprocally shifting to the right is equivalent to divide by
+<em>base^n</em>, if we consider the state vector as an integer encoded
+in binary.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Right Shift</th>
+<th>base *</th>
+<th>*</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x &gt;&gt; 1</td>
+<td>x / 2^1</td>
+<td>x / 2</td>
+</tr>
+<tr class="even">
+<td>x &gt;&gt; 2</td>
+<td>x / 2^2</td>
+<td>x / 4</td>
+</tr>
+<tr class="odd">
+<td>x &gt;&gt; 3</td>
+<td>x / 2^3</td>
+<td>x / 8</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<h2 id="modern-processors-architecture.">Modern processors
+architecture.</h2>
+<p>So we got the Turing Machine, Von Neumann architecture as an physical
+implementation of the Turing Machine, and a way to handle states and
+methods to give states some semantic.</p>
+<h1 id="section">[…]</h1>
+<h2 id="assembly-language-the-human-interface.">Assembly language, the
+human interface.</h2>
+<p>Assembly language is the one to one human readable version of the
+machine language.</p>
+<p>The Turing Machine defines a machine with an “instruction set”,
+assembly languages define <em>mnemonics</em> so we don’t have to encode
+instructions as a raw binary state.</p>
+<p>Assembly language is translated by a program named
+<em>assembler</em>, which takes an assembly source (in text format) and
+output a binary stream of machine code.</p>
+<h3 id="architecture-driven-dialect.">Architecture driven dialect.</h3>
+<p>Each processor architecture have its own instruction set, or dialect.
+It’s highly mapped to the hardware constraint. For sample, the size of
+the words used for computations.</p>
+<p>But beside the processor architecture, assembly programming requires
+to know the computer (or board) architecture too. How memory is mapped,
+what port is bound to what external component, communication with other
+software components (BIOS, Operating System) and so on.</p>
+<h3 id="the-assembler.">The Assembler.</h3>
+<p>The assembler is a powerful tool. Simple but efficient. Beside
+instruction translation to machine code, it also help the developer to
+manipulate memory addresses seamlessly using “labels” and calculating
+the right values for the developer.</p>
+<p>Actually the assembler simply keep a track of the generated machine
+code size, to and use it for address translation.</p>
+<p>So a label is simple a “stamp”, driven by its location in the source
+code, it references the generated address in the binary code. This allow
+the programmer to just reference <em>names</em> instead of calculating
+the values.</p>
+<h3 id="nasm.">NASM.</h3>
+<p>For this course, we’ll use <strong>nasm</strong> assembler, it’s free
+and open, and can be used to target several architectures.</p>
+<h2 id="x86-and-dos-architecture.">x86 and DOS architecture.</h2>
+<h3 id="real-mode.">Real Mode.</h3>
+<p>The legacy original model for the x86 family, is called the “Real
+Mode” (as opposed to the “Protected Mode”, introduced with later
+versions).</p>
+<p>In this model, and DOS, the program is a first class citizen on the
+machine, it can do <strong>WHATEVER IT WANT</strong>… It can even breaks
+things, from crashing the machine to actually destroy hardware.</p>
+<p>The original model is based on a 8/16 bit processor, which used 16
+bit machine words, and address memory using a 20 bit value.</p>
+<h3 id="memory-addressing.">Memory addressing.</h3>
+<p>How can this machine can access 20 bit memory address range while
+using 16 bit registers ?</p>
+<p>The solution chosen was to use 2 16 bit words, and introducing a
+concept of <em>segments</em> and <em>paragraphs</em>.</p>
+<p>This way the whole memory is access using 65536 segments, starting
+each 16 bytes, called one paragraph.</p>
+<p>The accessible range of one segments is 65536, using the
+<em>offset</em> 16 bit word.</p>
+<p>Linear byte address on the machine can be calculated this way:</p>
+<pre><code>&lt;memAdress&gt; linearAddress( u16 segment ,u16 offset )
+  =&gt; (segment &lt;&lt; 4) | offset</code></pre>
+<p>You can see that segments overlaps.</p>
+<p>We often use a segment to address the base of a 64 Kilobytes
+block.</p>
+<h3 id="the-x86-registers.">The x86 registers.</h3>
+<p>The x86 have s 16 bit registers:</p>
+<table>
+<thead>
+<tr class="header">
+<th>register name</th>
+<th>usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ax</td>
+<td>generalist</td>
+</tr>
+<tr class="even">
+<td>bx</td>
+<td>generalist ,base index</td>
+</tr>
+<tr class="odd">
+<td>cx</td>
+<td>generalist ,counter</td>
+</tr>
+<tr class="even">
+<td>dx</td>
+<td>generalist</td>
+</tr>
+<tr class="odd">
+<td>—-</td>
+<td>—-</td>
+</tr>
+<tr class="even">
+<td>cs</td>
+<td>code segment pointer</td>
+</tr>
+<tr class="odd">
+<td>ip</td>
+<td>instruction pointer</td>
+</tr>
+<tr class="even">
+<td>ds</td>
+<td>data segment</td>
+</tr>
+<tr class="odd">
+<td>es</td>
+<td>extra segment</td>
+</tr>
+<tr class="even">
+<td>si</td>
+<td>source index</td>
+</tr>
+<tr class="odd">
+<td>di</td>
+<td>destination index</td>
+</tr>
+<tr class="even">
+<td>—-</td>
+<td>—-</td>
+</tr>
+<tr class="odd">
+<td>Flags</td>
+<td>operation status</td>
+</tr>
+</tbody>
+</table>
+<p>The generalist registers, can be references by their individual bytes
+(high and low).</p>
+<table>
+<thead>
+<tr class="header">
+<th>16 bit register</th>
+<th>high 8 bit</th>
+<th>low 8 bit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ax</td>
+<td>ah</td>
+<td>al</td>
+</tr>
+<tr class="even">
+<td>bx</td>
+<td>bh</td>
+<td>bl</td>
+</tr>
+<tr class="odd">
+<td>cx</td>
+<td>ch</td>
+<td>cl</td>
+</tr>
+<tr class="even">
+<td>dx</td>
+<td>dh</td>
+<td>dl</td>
+</tr>
+</tbody>
+</table>
+<pre><code>if ax = 01234h
+then ah = 012h
+and al = 034h</code></pre>
+<p>Quick review of registers <a
+href="https://www.eecg.utoronto.ca/~amza/www.mindsec.com/files/x86regs.html">here</a></p>
+<h3 id="endianess.">Endianess.</h3>
+<p>There are different ways to store a processor word into the memory.
+Those ways are named <em>endianess</em>.</p>
+<p>x86 architecture uses <em>litte endians</em> which means least
+significant byte are written first.</p>
+<p>If we store an 32 bit integer value (012345678h) at some address in
+memory, it will be written as:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Memory address offset</th>
+<th>+0</th>
+<th>+1</th>
+<th>+2</th>
+<th>+3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>078h</td>
+<td>056h</td>
+<td>034h</td>
+<td>012h</td>
+</tr>
+</tbody>
+</table>
+<p>It might seems weird, and somehow… it is, but note that you can
+truncate a number easily from the same address:</p>
+<p>If you read 2 bytes, you get 05678h… If you read one byte you get
+078h. This is a way to easily truncate a number keeping bit offset,
+while reading or writing at the same address.</p>
+<p>Storing the bytes the other way around is called <em>big endian</em>.
+It’s often used as a portable way to store binary data, as a contract
+between machine with different endianess. In fact, <em>big endian</em>
+is often called <em>network encoding</em>. It can be used on many file
+formats, intended to be “portable”. But of course it’s arbitrary, when
+you define a binary format you also define it’s endianess. And if you
+want it to be portable, you have to be sure to reorder bytes depending
+if you need to translate from one endianess to another one.</p>
+<h3 id="memory-mapping.">Memory mapping.</h3>
+<p>Some memory range are mapped to specific usage. Again this mapping
+partially depends on the memory model and we’ll see the <em>Real
+Mode</em> (Legacy) one. Protected mode introduce other constraints (and
+virtual mapping).</p>
+<p>At the very beginning lies the <em>Interrupt Vector Table</em>. It’s
+an array holding the addresses of interrupt handlers.</p>
+<p>Then comes some BIOS data, and the OS BootSector. At boot time, the
+BIOS loads the <strong>boot sector</strong> of the boot device (floppy
+disk or hard drive) into a specific location in memory (07c00h in this
+model), and <em>jumps</em> to the first byte of this loaded sector,
+assuming it’s CPU instructions. Boot is responsible to setup the OS
+interrupts and do some tweak to prepare for future processes to run.</p>
+<p>Then there’s the application space, where the OS loads the requested
+programs, usually, memory is used from <em>bottom</em> to <em>up</em>,
+from low addresses to high addresses.</p>
+<p>Up in the addresses are more specific memory. The important one for
+us is the 128K starting at 0a0000h ( 0xa000:0x0000 ), which is the
+hardware mapped video memory. The format and exact offset used depends
+on the selected graphic mode.</p>
+<p>For more details on real mode memory mapping, <a
+href="https://wiki.osdev.org/Memory_Map_(x86)">see</a>…</p>
+<h3 id="dos.">DOS.</h3>
+<p>DOS was a very simple, single user, single program Operating System.
+No protection is provided, like memory protection or “elevation”.</p>
+<p>DOS executes it’s <em>shell</em>, <strong>COMMAND.COM</strong> which
+is the prompt you access after boot. This provides crude scripting
+features (through <em>batch</em> file - <strong>.BAT</strong>, aka
+<em>command files</em>, often <strong>.cmd</strong> nowadays).</p>
+<p>Keep in mind the file system was very crude too, you have only 8
+characters for the main name, and 3 characters for the extensions.
+You’ll have to be careful naming files accessible within the DOS
+environment.</p>
+<p>Also the DOS file system is case insensitive, which actually results
+in all file names being <strong>upper case</strong>. But you can
+reference them with lower case name, it’s just a display format when you
+<strong>DIR</strong> a directory and the internal storage of file
+names.</p>
+<h4 id="dos-api.">DOS API.</h4>
+<p><strong>DOS</strong> provides services through interrupt. Note that
+it’s a common scenario for OSes, <em>Linux</em> for sample, is using the
+interrupt 080h as an entry point to its API. <strong>DOS</strong> mainly
+uses interrupt 021h.</p>
+<p>You can find the list of <strong>DOS</strong> API entry point is
+various “Interrupt Lists” available online, there’s one provided in the
+<strong><em>/docs</em></strong> directory</p>
+<h3 id="program-loading.">Program loading.</h3>
+<p>We will generate raw binary object, with the <strong>DOS</strong>
+extension <em>.COM</em>. The COM programs can’t be over 64 Kbytes, the
+file is simply <em>binary loaded</em> (loaded as is) in the first
+available memory segment, and the OS prepare all segment registers to
+point to that segment, then call the entry point address.</p>
+<p>In fact, DOS prepare a 256 bytes block first, at the beginning of the
+process segment, which holds some system information. This is the
+<em>Program Segment Prefix</em> (<strong>PSP</strong>). You can often
+ignore its content, but you need to handle it for addressing: the
+program is loaded <strong>AFTER</strong> the <strong>PSP</strong>, which
+means at the segment offset 256 ( 0100h ), that’s why you need to
+<em>offset</em> addresses by 0100h in your program. This is the purpose
+of the ‘origin 100h’ assembler directive in your programs.</p>
+<p>Although being limited to 64kb process image, the whole memory after
+the first segment is available to the program (up until the reserved
+one, see <em>memory mapping</em> above). It’s up to the programmer to
+manage this memory and how to address those segments.</p>
+</body>
+</html>
